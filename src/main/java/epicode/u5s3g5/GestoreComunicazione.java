@@ -36,9 +36,7 @@ public class GestoreComunicazione implements RilevatoreIncendi {
 	}
 
 	public void rilevaIncendio() {
-		for (SondaIncendi sonda : sonde) {
-			sonda.setLivelloFumo(6);
-		}
+
 		notificaOsservatori();
 	}
 }

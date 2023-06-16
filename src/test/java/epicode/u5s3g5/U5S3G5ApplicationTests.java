@@ -32,24 +32,15 @@ class U5S3G5ApplicationTests {
 	}
 
 	@Test
-	void testNotificaCentroControllo() {
-		SondaIncendi sonda = SondaFactory.creaSonda(1, 45.678, 9.123);
-		CentroControllo centroControllo = new CentroControlloImpl();
-
-		GestoreComunicazione gestoreComunicazione = new GestoreComunicazione(List.of(sonda));
-		gestoreComunicazione.aggiungiOsservatore(centroControllo);
-
-		gestoreComunicazione.rilevaIncendio();
-	}
-
-	@Test
 	void testInvocazioneURL() {
 
 		SondaIncendi sonda1 = SondaFactory.creaSonda(2, 48.678, 7.123);
-		CentroControllo centroControllo = new CentroControlloImpl();
+		CentroControllo centroControllo = new CentroControlloImpl(2);
 
 		GestoreComunicazione gestoreComunicazione = new GestoreComunicazione(List.of(sonda1));
 		gestoreComunicazione.aggiungiOsservatore(centroControllo);
+
+		sonda1.setLivelloFumo(6);
 
 		gestoreComunicazione.rilevaIncendio();
 
